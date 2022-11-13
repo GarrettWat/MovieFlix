@@ -1,8 +1,8 @@
 
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
+import {Navbar, Home} from './components/index';
+
 
 const App = () => (
   <BrowserRouter>

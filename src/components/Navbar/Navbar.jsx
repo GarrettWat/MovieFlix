@@ -8,6 +8,19 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Link from '@mui/material/Link';
+import './Navbar.css';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2',
+    },
+  },
+});
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,24 +67,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <ThemeProvider theme={darkTheme}>
+        <AppBar position="static" color="primary">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            <a href='/' className='hero-txt'> MovieFlix 🍿  </a>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -84,6 +89,10 @@ export default function Navbar() {
           </Search>
         </Toolbar>
       </AppBar>
+      </ThemeProvider>
+
+
+
     </Box>
   );
 }
